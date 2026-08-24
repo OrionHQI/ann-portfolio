@@ -1573,3 +1573,23 @@ body {
         max-width: 100%;
     }
 }
+/* PAGE NAVIGATION */
+
+main > section {
+    display: none;
+    min-height: calc(100vh - 80px);
+}
+
+main > section#home {
+    display: flex;
+}
+
+/* Show the selected page */
+main > section:target {
+    display: block;
+}
+
+/* Hide Home when another section is selected */
+main:has(section:target) > section#home {
+    display: none;
+}
