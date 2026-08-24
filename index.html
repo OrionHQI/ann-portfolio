@@ -409,7 +409,36 @@
     </div>
 
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const sections = document.querySelectorAll("main > section, body > section");
+
+    function showPage() {
+        const page = window.location.hash || "#home";
+
+        sections.forEach(section => {
+            section.style.display = "none";
+        });
+
+        const selected = document.querySelector(page);
+
+        if (selected) {
+            selected.style.display = "block";
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener("click", function () {
+            setTimeout(showPage, 10);
+        });
+    });
+
+    window.addEventListener("hashchange", showPage);
+
+    showPage();
+});
+</script>
 </body>
 </html>
 </body>
